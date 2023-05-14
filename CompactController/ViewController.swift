@@ -22,9 +22,9 @@ class ViewController: UIViewController {
     let secondVC = SecondVC()
     return secondVC
   }()
- 
+  
   var heightAnchor: NSLayoutConstraint?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,15 +34,12 @@ class ViewController: UIViewController {
     heightAnchor = secondVC.view.heightAnchor.constraint(equalToConstant: 280)
     secondVC.delegate = self
     
-    
     button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
   }
   
   @objc private func buttonPressed() {
     openSecondVC()
   }
-  
-  
   
   private func openSecondVC() {
     secondVC.view.translatesAutoresizingMaskIntoConstraints = false
@@ -58,10 +55,10 @@ class ViewController: UIViewController {
       heightAnchor!,
       secondVC.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       
-
+      
     ])
   }
-
+  
   private func setupConstraints() {
     
     button.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +70,7 @@ class ViewController: UIViewController {
       
     ])
   }
-
+  
 }
 
 extension ViewController: ConstraintDelegate {
@@ -95,11 +92,8 @@ extension ViewController: ConstraintDelegate {
         
         self.view.layoutIfNeeded()
         
-        
       }
     }
-    
-    
   }
   
 }

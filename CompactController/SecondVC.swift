@@ -42,7 +42,7 @@ class SecondVC: UIViewController {
     dissmissButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     segmentedControl.addTarget(self, action: #selector(segmentedControlTapped), for: .valueChanged)
   }
-
+  
   func drawView() {
     
     //Path part
@@ -61,12 +61,8 @@ class SecondVC: UIViewController {
     view.layer.addSublayer(shape)
   }
   
-  deinit {
-    print("wow")
-  }
-  
   @objc func segmentedControlTapped(sender: UISegmentedControl) {
-   
+    
     self.view.translatesAutoresizingMaskIntoConstraints = false
     switch sender.selectedSegmentIndex {
       
@@ -74,7 +70,7 @@ class SecondVC: UIViewController {
       delegate?.updateConstraint(int: 280)
       
     case 1 :
-     
+      
       delegate?.updateConstraint(int: 150)
     default:
       print("error")
@@ -85,15 +81,12 @@ class SecondVC: UIViewController {
     
     // First, notify the child that it’s about to be removed
     self.willMove(toParent: nil)
-
+    
     // Then, remove the child from its parent
     self.removeFromParent()
-
+    
     // Finally, remove the child’s view from the parent’s
     self.view.removeFromSuperview()
-  
-    
-  
     
   }
   
